@@ -9,6 +9,8 @@ namespace EsercizioDifficile1
         {
             const string fileinput = "input.txt";
             string numeri = "";
+            int n = 0;
+            int x = 0;
             if(File.Exists(fileinput))
             try
             {
@@ -21,6 +23,7 @@ namespace EsercizioDifficile1
             {
                 Console.WriteLine(ex.Message);
             } 
+            
         }
     }
 }
