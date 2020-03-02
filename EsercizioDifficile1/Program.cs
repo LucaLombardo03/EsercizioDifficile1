@@ -20,7 +20,7 @@ namespace EsercizioDifficile1
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
+            } 
         }
     }
 }
