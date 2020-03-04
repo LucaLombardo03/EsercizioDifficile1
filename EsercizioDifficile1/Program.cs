@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace EsercizioDifficile1
 {
@@ -7,17 +8,40 @@ namespace EsercizioDifficile1
     {
         static void Main(string[] args)
         {
-            const string fileinput = "input.txt";
-            string numeri = "";
-            int n = 0;
-            int x = 0;
-            if(File.Exists(fileinput))
             try
             {
-                using (StreamReader sr = new StreamReader(fileinput))
+                const string input = "input.txt";
+                const string output = "output.txt";
+                string numero;
+                using (StreamReader sr = new StreamReader(input))
                 {
-                    numeri = sr.ReadLine();
+                    numero = sr.ReadLine();
+
                 }
+                using (StreamWriter sw = new StreamWriter(output, false, Encoding.UTF8))
+                {
+                    int i = 0;
+                    do
+                    {
+                        int lunghezzanumero = 0;
+                        do
+                        {
+                            lunghezzanumero++;
+
+                            i++;
+                        } while (numero[i] != '1');
+
+                        string n = numero.Substring(i + 1, lunghezzanumero);
+                        int n1 = int.Parse(n);
+
+                        string numerofinale = numero.Substring(i + lunghezzanumero + 1, n1);
+                        sw.WriteLine(numero);
+                        i += 1 + lunghezzanumero + n1;
+
+                    } while (numero[i] != '*');
+                    
+                }
+
             }
             catch (Exception ex)
             {
